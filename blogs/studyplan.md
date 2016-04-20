@@ -30,3 +30,6 @@
    * 任务:界面跳转，Ａ界面输入内容在Ｂ界面显示＝》开放数据API的数据获取与展示
    * 任务:电影院选座系统
    
+## 学习站点推荐
+   * JavaScript 秘密花园(http://www.jb51.net/onlineread/JavaScript-Garden-CN/)
+   * TodoMVC (http://todomvc.com/) 有使用各种框架实现的todo Demo，可以理解下mvc结构
