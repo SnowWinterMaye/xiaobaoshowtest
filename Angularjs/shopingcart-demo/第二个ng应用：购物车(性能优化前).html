@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Demo</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+	<style>
+	.selected{color:red;}
+	</style>
+</head>
+<body ng-controller="goodsList">
+购物车
+<ul >
+	<li ng-repeat="thing in goods">
+		{{$index}}
+		<span ng-bind="thing.title"></span>
+		<span ng-bind="thing.price"></span>
+		<input type="text" ng-model="thing.quantity" />
+		<span>{{thing.quantity*thing.price|currency}}</span>
+	</li>
+</ul>
+<div>合计:{{total()|currency}}</div>
+<div>
+
+	
+	<label >满200减20：<span ng-hide="!check">{{disNum|currency}}</span></label>
+	<input type="checkbox" ng-model="check"/>
+</div>
+<div>优惠后:{{subtotal()|currency}}</div>
+<script>
+angular.module('myApp',[])
+	.controller('goodsList',function($scope){
+		//录入数据
+		$scope.goods=[
+			{
+				title: 'cat',
+				price: 50,
+				quantity: 0
+			},
+			{
+				title: 'dog',
+				price: 50,
+				quantity: 0
+			},
+			{
+				title: 'mouse',
+				price: 50,
+				quantity: 0
+			},
+			{
+				title: 'elephant',
+				price: 50,
+				quantity: 0
+			}
+		];
+		$scope.disNum = 20;
+		$scope.total = function(){
+			var totalPrice = 0;
+			angular.forEach($scope.goods,function(data,index,array){
+				totalPrice += array[index].price * array[index].quantity;
+				
+			});
+			return totalPrice;
+		}
+		$scope.subtotal = function(){
+			if($scope.check&&$scope.total()>200){
+				return $scope.total()-$scope.disNum;
+			}else{
+				return $scope.total();
+			}
+		}
+	});
+
+</script>
+
+</body>
+</html>

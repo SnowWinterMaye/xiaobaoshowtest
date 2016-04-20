@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a-mail</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular-route.js"></script>
+</head>
+<body ng-app="aMail">
+	<h1>a-mail</h1>
+	<div ng-view></div>
+</body>
+<script>
+	var mailApp = angular.module("aMail",['ngRoute']);
+    mailApp.config(function($routeProvider){
+    		$routeProvider.when('/',{
+				controller:'ListController',
+				templateUrl:'list.html'
+			}).when('/view/:id',{
+				controller:'DetailController',
+				templateUrl:'detail.html'
+			}).when('/list2',{
+				templateUrl:'list2.html'
+			}).otherwise({
+				redirectTo: '/'
+			});
+
+    });
+
+   	
+	mailApp.controller('ListController',function($scope,$location){
+		 $scope.messages =[{
+			id:0,
+			sender:'jean@somecompany.com',
+			subject:'Hi there,old friend', 
+			date:'Dec7,2013 12:32:00',
+			recipients:['greg@somecompany.com'],
+			message:'Hey,we should get together for lunch sometime and catch up.' 
+		},
+		{
+			id:1,
+			sender:'jean@somecompany.com',
+			subject:'Hi there,old friend', 
+			date:'Dec7,2013 12:32:00',
+			recipients:['greg@somecompany.com'],
+			message:'Hey,we should get together for lunch sometime and catch up.' 
+		},
+		{
+			id:2,
+			sender:'jean@somecompany.com',
+			subject:'Hi there,old friend', 
+			date:'Dec7,2013 12:32:00',
+			recipients:['greg@somecompany.com'],
+			message:'Hey,we should get together for lunch sometime and catch up.' 
+		}
+		];
+
+		$scope.go = function (id) {
+			$location.path("/list2");
+		}
+	});
+
+	mailApp.controller('DetailController',function($scope){
+	
+	});
+    
+</script>
+</html>

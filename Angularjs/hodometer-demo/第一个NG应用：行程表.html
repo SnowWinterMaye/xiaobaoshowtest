@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>火车出行行程安排Demo</title>
+	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
+	<style>
+	.clearfix { *zoom: 1; }
+	.clearfix:after { display: table; clear: both; content: ''; }
+	*{margin:0;padding:0;}
+	ul{list-style: none;}
+	.billboard{margin-left:-250px;margin-top:-250px;left:50%;top:50%;width:500px;height:500px;position:absolute;text-align: center;border:1px dotted black;}
+	.billboard ul {width:100%;height:auto;margin-top:100px;margin-bottom:100px;}
+	.billboard li {float:left;text-align:center;width:33.333%;box-sizing: border-box;}
+	.billboard li i {color:#00b33b;}
+	.billboard li>div{margin-bottom:20px;}
+	.Peking:after{content: '';
+    width: 154px;
+    height: 2px;
+    position: absolute;
+    background: #00b33b;
+    margin-top: 8px;}
+    .shanghai:after{content: '';
+    width: 154px;
+    height: 2px;
+    position: absolute;
+    background: #00b33b;
+    margin-top: 8px;}
+	</style>
+</head>
+<body>
+<div class="billboard" ng-app="myApp" ng-controller="MyController">
+	<h2>NG火车行程表</h2>
+	<ul class="clearfix" >
+		<li class="Peking"> 
+			<div>
+				<span class="timeline">北京</span>
+			</div>
+			<i ng-class="{'fa fa-circle-o': never && never1,'fa fa-circle': pass, 'fa fa-check-circle': here && here1}"></i>
+		</li>
+		<li class="shanghai">
+			<div>
+				<span class="timeline">上海</span>
+			</div>
+			<i class="fa" ng-class="{'fa fa-circle-o': never && never2,'fa fa-circle': pass, 'fa fa-check-circle': here && here2}"></i>
+		</li>
+		<li class="guangzhou">
+			<div>
+				<span class="timeline">广州</span>
+			</div>
+			<i class="fa" ng-class="{'fa fa-circle-o': never && never3,'fa fa-circle': pass, 'fa fa-check-circle': here && here3}"></i>
+		</li>
+	</ul>
+	<div class="controller">
+	<label for="choose">请选择起始站</label>
+		<select  id="choose"  ng-change="chkchange()" ng-model="myValue"  ng-init="myValue=0">
+		    <option value="0" >--选择起点--</option>
+			<option value="1" >北京</option>
+			<option value="2">上海</option>
+			<option value="3">广州</option>
+		</select> <br />
+			<button ng-click="prev()">上一站</button>
+			<button ng-click="next()">下一站</button>	
+	</div>
+</div>
+<script>
+
+		var app = angular.module("myApp",[]);
+		app.controller('MyController',function($scope){
+			$scope.never = true;
+			$scope.never1 = true;
+			$scope.never2 = true;
+			$scope.never3 = true;
+			$scope.prev = function(){
+				$scope.index -= 1;
+				if($scope.index<1){
+					$scope.index = 1;
+				}
+				if(!$scope.index){
+					alert('请先选择起点!');
+					return false;
+				}
+                $scope.switch($scope.index);
+                console.log($scope.index);
+			};
+			$scope.next = function(){
+				if(!$scope.index){
+					alert('请先选择起点!');
+					return false;}
+				$scope.index += 1;
+				if($scope.index>3){
+					$scope.index = 3;
+				}
+				
+                $scope.switch($scope.index);
+                console.log($scope.index);
+			};
+
+			$scope.chkchange = function(){
+				$scope.index = parseInt($scope.myValue);
+				console.log($scope.index);
+				$scope.switch($scope.index);
+
+			};
+			$scope.switch = function(index){
+					switch(index){
+					case 1:
+					$scope.here2 = false;
+					$scope.here3 = false;
+					$scope.never2 = true;
+					$scope.never3 = true;
+					$scope.never1 = false;
+					$scope.here = true;
+					$scope.here1 = true;
+					
+					break; 
+					case 2:
+					$scope.here1 = false;
+					$scope.here3 = false;
+					$scope.never1 = true;
+					$scope.never3 = true;
+					$scope.never2 = false;
+					$scope.here = true;
+					$scope.here2 = true;
+					break;
+
+					case 3:
+					$scope.here1 = false;
+					$scope.here2 = false;
+					$scope.never2 = true;
+					$scope.never1 = true;
+					$scope.never3 = false;
+					$scope.here = true;
+					$scope.here3 = true;
+					break;
+				}
+			};
+		});
+		
+		
+			
+			
+		
+
+		
+
+	
+</script>
+</body>
+</html>
