@@ -14,3 +14,8 @@ git branch -d dev
 ```
 git checkout -b dev origin/dev
 ```
+
+合并分支dev 到当前分支（master).之后需要解决冲突
+```
+git merge dev
+```
