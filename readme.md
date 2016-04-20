@@ -7,8 +7,8 @@
     * 自带指令的理解与使用。（ng-if,ng-show,ng-repeat,ng-class,ng-style。。。
     * MVC模式的理解
     * 自定义指令与服务
-    * ui-router111122
-    * . . .122
+    * ui-router
+    * . . .
 
 
 * # JS
