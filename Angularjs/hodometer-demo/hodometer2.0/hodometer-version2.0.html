@@ -31,14 +31,16 @@
 	<h2>NG火车行程表</h2>
     
 	<ul ng-repeat="p in data">
-		<li> 	
-			<place-detail my-city="{{p.place}}"></place-detail>
+		
+		<li> 
+				
+			<place-detail my-city="{{p.place}}" city-id="{{p.id}}" city-index="{{$index}}"></place-detail>
 		</li>
 	</ul>
     
 	<div>
         <label for="choose">请选择起始站</label>
-        <select  id="choose" ng-model="mySelect" ng-options="a.id as a.place for a in data">
+        <select  id="choose" ng-model="mySelect" ng-change="selectValue()" ng-options="a.id as a.place for a in data">
             <option value="" >--选择起点--</option>
         </select>
         <button ng-click="prev()">上一站</button>
