@@ -20,24 +20,34 @@
 
 <body>
     <div id="app">
+        <!-- 双向绑定部分-->
         {{{html_raw}}}
         
-        <span>{{Age/2}}</span>
+        
         <input v-model="message" v-on:keyup.enter="addtodo">
         <ul>
+            <!-- 列表渲染部分-->
             <li v-for="t in todos">
                 <span>{{t.text}}</span>
                 <button v-on:click="removetodo($index)">X</button>
             </li>
         </ul>
         <button v-on:click="handleclick">点一下试一试</button>
+        
+        <!-- 双向绑定 变量计算部分-->
         <span>{{Sex=='male'?"男":"女"}}</span>
+        <span>{{Age/2}}</span>
+        <!-- 筛选器部分-->
         <div><span>{{time|DateTran 'YYYY-MM-DD'}}</span></div>
+        <!-- 属性绑定部分-->
         <a v-bind:href="baidu">baidu</a>
         <p>{{total}}</p>
+        <!-- 样式渲染部分-->
         <p v-bind:class="{'isA trans':isA,'isB trans':!isA}">{{isA}}</p>
+        <!-- 事件绑定-->
         <button v-on:click="toggle">点击切换</button>
 
+        <!-- 条件判断部分-->
         <h1 v-if="isA">isA</h1>
         <h2 v-else>isB</h2>
         
@@ -59,32 +69,25 @@
             "Age":40,
             "City":"HZ"
         }];
-        
+        //按照某属性排序
         function compare(ttt) { 
             return function(a,b){
-                return a.ttt-b.ttt
+                return a[ttt]-b[ttt]
             }; 
-        
         } 
-        
-      
-        
-        numArr.sort(compare,'Age'); 
-        
+        numArr.sort(compare('Age')); 
         for (var i = 0; i<numArr.length; i++) { 
-        
-            document.write(numArr[i] +"<br>"); 
-        
+            console.log(numArr[i]); 
         } 
-
         
-        
+        //Vue的筛选器
         Vue.filter('DateTran',function(value,params){
             return value+params;
         })
-        
+        //Vue的初始化
         var vm = new Vue({
         el:'#app',
+        //数据 model 部分
         data:{
             message:'Helloo Vue.js zzz',
             todos:[
@@ -99,6 +102,7 @@
             baidu:'http://www.baidu.com',
             isA:true
         },
+        //方法部分
         methods:{
             handleclick:function(){
                 this.message = this.message.split('').reverse().join('')
@@ -116,6 +120,7 @@
                 this.isA = !this.isA;
             }
         },
+        //动态计算/watch 部分
         computed:{
             total:function(){
                 return this.todos.length;
