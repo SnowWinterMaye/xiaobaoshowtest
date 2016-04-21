@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Vue</title>
+    <script src="./lib/vue.js"></script>
+    <style>
+        .isA{
+            background-color: darkgreen;
+        }
+        .isB{
+            background-color: red;
+        }
+        .trans{
+            transition: background 1s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        {{{html_raw}}}
+        
+        <span>{{Age/2}}</span>
+        <input v-model="message" v-on:keyup.enter="addtodo">
+        <ul>
+            <li v-for="t in todos">
+                <span>{{t.text}}</span>
+                <button v-on:click="removetodo($index)">X</button>
+            </li>
+        </ul>
+        <button v-on:click="handleclick">点一下试一试</button>
+        <span>{{Sex=='male'?"男":"女"}}</span>
+        <div><span>{{time|DateTran 'YYYY-MM-DD'}}</span></div>
+        <a v-bind:href="baidu">baidu</a>
+        <p>{{total}}</p>
+        <p v-bind:class="{'isA trans':isA,'isB trans':!isA}">{{isA}}</p>
+        <button v-on:click="toggle">点击切换</button>
+
+        <h1 v-if="isA">isA</h1>
+        <h2 v-else>isB</h2>
+        
+        <h1 v-show="isA">HEllo</h1>
+        
+    </div>
+    
+    <script>
+        var numArr = [{
+            "name":"陈雪冬",
+            "Age":100,
+            "City":"WH"
+        },{
+            "name":"陈雪西",
+            "Age":28,
+            "City":"XY"
+        },{
+            "name":"陈雪南",
+            "Age":40,
+            "City":"HZ"
+        }];
+        
+        function compare(ttt) { 
+            return function(a,b){
+                return a.ttt-b.ttt
+            }; 
+        
+        } 
+        
+      
+        
+        numArr.sort(compare,'Age'); 
+        
+        for (var i = 0; i<numArr.length; i++) { 
+        
+            document.write(numArr[i] +"<br>"); 
+        
+        } 
+
+        
+        
+        Vue.filter('DateTran',function(value,params){
+            return value+params;
+        })
+        
+        var vm = new Vue({
+        el:'#app',
+        data:{
+            message:'Helloo Vue.js zzz',
+            todos:[
+                {text:'Learning AngularJS'},
+                {text:'Learning React'},
+                {text:'Learning Vue'}
+                ],
+            html_raw:'<p>HTLM<p>',
+            Age:24,
+            Sex:'female',
+            time:'2016-08-08 12:22:11',
+            baidu:'http://www.baidu.com',
+            isA:true
+        },
+        methods:{
+            handleclick:function(){
+                this.message = this.message.split('').reverse().join('')
+            },
+            removetodo:function(i){
+                this.todos.pop(this.todos[i])
+            },
+            addtodo:function(){
+                this.todos.push({
+                    text:this.message
+                })
+                this.message = ''
+            },
+            toggle:function(){
+                this.isA = !this.isA;
+            }
+        },
+        computed:{
+            total:function(){
+                return this.todos.length;
+            }
+        }
+    })
+    
+
+    </script>
+</body>
+
+</html>

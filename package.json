@@ -1,0 +1,22 @@
+{
+  "name": "xiaobaoshowtest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "browser-sync start --server --files=\"*.html,*\\*.html,*\\*.css\",*\\*\\*.html\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SnowWinterMaye/xiaobaoshowtest.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SnowWinterMaye/xiaobaoshowtest/issues"
+  },
+  "homepage": "https://github.com/SnowWinterMaye/xiaobaoshowtest#readme",
+  "dependencies": {
+    "browser-sync": "^2.12.3"
+  }
+}
