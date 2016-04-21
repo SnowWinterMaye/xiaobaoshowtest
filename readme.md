@@ -3,11 +3,11 @@
 
 ## 学习部分
 # NG
-  + 基本概念的理解。（双向绑定，依赖注入，控制器，作用域，过滤器。。。
-  + 自带指令的理解与使用。（ng-if,ng-show,ng-repeat,ng-class,ng-style。。。
-  + MVC模式的理解
-  + 自定义指令与服务
-  + ui-router
+- 基本概念的理解。（双向绑定，依赖注入，控制器，作用域，过滤器。。。
+- 自带指令的理解与使用。（ng-if,ng-show,ng-repeat,ng-class,ng-style。。。
+- MVC模式的理解
+- 自定义指令与服务
+- ui-router
 
 
 # JS
