@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exampleApp">
+<head>
+  <meta charset="UTF-8">
+   <script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
+  <title>Directive Scopes</title>
+  <script type="text/ng-template" id="scopeTemplate">
+    <div class="panel-body">
+     <div class="">
+       <p>Name:{{local}}<br />Sex:{{sex}}<br />City:{{cityFn()}}</p>
+     </div>
+    </div>
+  </script>
+<script src="app.js"></script>
+</head>
+<body ng-controller="scopeCtrl">
+  <div class="panel panel-default">
+     <div class="panel-body">
+       Direct Binding:<input ng-model="data.name">
+     </div>
+    <div scope-demo city="getCity(data.name)"  sex="{{data.sex}}" nameprop="data.name"></div>
+  </div>
+</body>
+</html>
