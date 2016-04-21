@@ -10,7 +10,7 @@
 
 # 框架
 #### *[AngularJS]()* [1](http://www.hubwiz.com/course/547c3e3b88dba0087c55b4e5/) [2](http://www.hubwiz.com/course/54f3ba65e564e50cfccbad4b/) 
-
+   [AngularJS作用域详解](https://segmentfault.com/a/1190000002773689)
 * *[NG2]()*     *[TypeScript]()*
 
 
