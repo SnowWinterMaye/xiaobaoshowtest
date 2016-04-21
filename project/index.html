@@ -56,19 +56,7 @@
     </div>
     
     <script>
-        var numArr = [{
-            "name":"陈雪冬",
-            "Age":100,
-            "City":"WH"
-        },{
-            "name":"陈雪西",
-            "Age":28,
-            "City":"XY"
-        },{
-            "name":"陈雪南",
-            "Age":40,
-            "City":"HZ"
-        }];
+        var numArr = [{"name":"陈雪冬","Age":100,"City":"WH"},{"name":"陈雪西","Age":28,"City":"XY"},{"name":"陈雪南","Age":40,"City":"HZ"}];
         //按照某属性排序
         function compare(ttt) { 
             return function(a,b){
@@ -79,6 +67,7 @@
         for (var i = 0; i<numArr.length; i++) { 
             console.log(numArr[i]); 
         } 
+        
         
         //Vue的筛选器
         Vue.filter('DateTran',function(value,params){
@@ -127,8 +116,6 @@
             }
         }
     })
-    
-
     </script>
 </body>
 
