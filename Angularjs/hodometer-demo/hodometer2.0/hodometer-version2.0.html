@@ -2,51 +2,46 @@
 <html lang="zh-cn">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 , user-scalable=no">
 	<title>火车出行行程安排Demo</title>
 	<script src="http://lib.sinaapp.com/js/angular.js/angular-1.2.19/angular.min.js"></script>
 	<link rel="stylesheet" href="http://apps.bdimg.com/libs/fontawesome/4.4.0/css/font-awesome.min.css">
-	<style type="text/css" rel="stylesheet">
-        
-    /*清除浮动*/
-	.clearfix { *zoom: 1; }
-	.clearfix:after { display: table; clear: both; content: ''; }
-    
-    /*reset*/
-	*{margin:0;padding:0;}
-	ul{list-style: none;}
-    
-    /*主要样式*/
-	.billboard{margin-left:-250px;margin-top:-250px;left:50%;top:50%;width:500px;height:500px;position:absolute;text-align: center;border:1px dotted black;}
-	.billboard ul {width:100%;height:auto;margin-top:100px;margin-bottom:100px;}
-	.billboard li {float:left;text-align:center;width:33.333%;box-sizing: border-box;}
-	.billboard li i {color:#00b33b;}
-	.billboard li>div{margin-bottom:20px;}
-	.Peking:after{content: ''; width: 154px; height: 2px; position: absolute; background: #00b33b; margin-top: 8px;} .shanghai:after{content:
-''; width: 154px; height: 2px; position: absolute; background: #00b33b; margin-top: 8px;}
-
-	</style>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body ng-app="myApp">
 <div class="billboard" ng-controller="myCtrl">
 	<h2>NG火车行程表</h2>
     
-	<ul ng-repeat="p in data">
-		
-		<li> 
-				
-			<place-detail my-city="{{p.place}}" city-id="{{p.id}}" city-index="{{$index}}"></place-detail>
+	<ul  class="city clearfix">
+		<li ng-repeat="p in data"> 				
+			<place-detail my-city="{{p.place}}" city-id="{{p.id}}" city-index="{{$index}}" city-status="{{p.status}}"></place-detail>
 		</li>
 	</ul>
+	
     
-	<div>
-        <label for="choose">请选择起始站</label>
-        <select  id="choose" ng-model="mySelect" ng-change="selectValue()" ng-options="a.id as a.place for a in data">
+	
+        <!--<label for="choose">请选择起始站:</label>-->
+        <!--<select  id="choose" ng-model="mySelect" ng-change="selectValue()" ng-options="a.id as a.place for a in data">
             <option value="" >--选择起点--</option>
-        </select>
-        <button ng-click="prev()">上一站</button>
-        <button ng-click="next()">下一站</button>	
+        </select><br>-->
+<div class="slider">
+		<div class="btnCollect">
+			<div class="start" ng-click="display()">{{message}}</div><br />
+			<button ng-click="prev()">上一站</button>
+			<button ng-click="next()">下一站</button>	
+		</div>
+	<div class="mask">
+	<ul  class="clearfix">
+		<h3>始发站</h3>
+		<li ng-repeat="p in data"> 				
+			<place-list my-city="{{p.place}}" city-id="{{p.id}}" city-index="{{$index}}" city-fn="selectValue(p.id)" we-first="{{p.first}}"></place-list>
+		</li>
+	</ul>
+	<h3>修改地点</h3>
+	<div class="modify">+</div>
+	<div class="modify">-</div>
 	</div>
-    
+	</div>
 </div>
 
 <script src="app.js"></script>

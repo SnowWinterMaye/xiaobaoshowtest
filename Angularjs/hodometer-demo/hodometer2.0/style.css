@@ -1,0 +1,88 @@
+/*清除浮动*/
+.clearfix { *zoom: 1; }
+.clearfix:after { display: table; clear: both; content: ''; }
+
+/*reset*/
+*{margin:0;padding:0;}
+ul{list-style: none;}
+html,body{height:100%;overflow:hidden;}
+/*媒体查询*/
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px){ 
+    .billboard {width:320px; } 
+    }
+
+/*iphone5 & 5s*/
+ @media only screen and (min-device-width : 320px) and (max-device-width : 568px) {
+      .billboard { width:320px;}
+       } 
+
+ /*iphone6 */
+@media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
+     .billboard { width:375px;} 
+     } 
+
+ /*iphone6 + */
+@media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
+     .billboard { width:414px;} 
+     }
+
+/*主要样式*/
+/*.billboard{margin-left:-250px;margin-top:-250px;left:50%;top:50%;width:500px;height:500px;position:absolute;text-align: center;border:1px dotted black;}*/
+.billboard{text-align:center;height:100%;overflow:hidden;}
+.billboard h2{margin-top:158px;}
+.billboard .city {width:100%;height:auto;margin-top:50px;margin-bottom:50px;}
+.billboard .city li {float:left;text-align:center;width:33.333%;box-sizing: border-box;}
+.billboard li i {color:#00b33b;}
+.billboard li>div{margin-bottom:20px;}
+.Peking:after{content: ''; width: 154px; height: 2px; position: absolute; background: #00b33b; margin-top: 8px;} .shanghai:after{content:''; width: 154px; height: 2px; position: absolute; background: #00b33b; margin-top: 8px;}
+.start{display:inline-block;background: #FF6226!important;}
+.start,
+button{
+    padding:8px 27px;    
+    border: none;
+    background: #269BFF;
+    margin-top: 20px;
+    color: #fff;
+    font-family: Microsoft Yahei;
+    font-size: 1rem;
+    border-radius: 5px;
+    outline: none;
+    }
+.active{color: red;}
+.slider{height:100%;width:100%;}
+.mask{
+    margin-top:50px;
+    background:#ccc; 
+    height:100%;
+    padding:20px;
+    box-sizing:border-box;
+    font-family: Microsoft Yahei;
+}
+.mask li,
+.mask .modify{
+    display:inline-block; 
+    border:1px solid #fff;
+    color:#fff;
+    padding:0 25px;
+    margin: 0 15px 12px 0;
+    height: 24px;
+    font-size:14px;
+    line-height: 24px;
+    box-sizing:border-box;
+    border-radius:2px;
+  
+}
+.mask li em{position:absolute;margin-left:11px;}
+.mask .modify{
+    font-weight:600;
+    font-size:18px;
+    color:#ccc;
+    background:#fff;
+}
+.mask h3{
+    color:#fff;
+    font-family: Microsoft Yahei;
+    font-size:18px;
+    text-align:left;
+    margin-bottom:10px;
+}
