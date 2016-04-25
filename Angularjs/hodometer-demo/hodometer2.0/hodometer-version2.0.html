@@ -24,22 +24,25 @@
         <!--<select  id="choose" ng-model="mySelect" ng-change="selectValue()" ng-options="a.id as a.place for a in data">
             <option value="" >--选择起点--</option>
         </select><br>-->
-<div class="slider">
+<div class="slider" ng-class="{'slideTop':toTop,'slideDown':toBottom}">
 		<div class="btnCollect">
 			<div class="start" ng-click="display()">{{message}}</div><br />
-			<button ng-click="prev()">上一站</button>
+			<button ng-click="prev()" >上一站</button>
 			<button ng-click="next()">下一站</button>	
 		</div>
 	<div class="mask">
 	<ul  class="clearfix">
 		<h3>始发站</h3>
-		<li ng-repeat="p in data"> 				
-			<place-list my-city="{{p.place}}" city-id="{{p.id}}" city-index="{{$index}}" city-fn="selectValue(p.id)" we-first="{{p.first}}"></place-list>
+		<li ng-repeat="p in data" ng-if="p.show"> 				
+			<place-list my-city="{{p.place}}" city-id="{{p.id}}" city-fn="selectValue($index)" we-first="{{p.first}}" city-index="{{$index}}" del-fn="myDelete(event,$index)" my-cut="{{myCut}}" ></place-list>
 		</li>
 	</ul>
 	<h3>修改地点</h3>
-	<div class="modify">+</div>
-	<div class="modify">-</div>
+	<input type="text" ng-model="place" ng-show="addValue">
+	<div class="modify" ng-click="add()" ng-model="addadd" ng-show="!addadd">+</div>
+	<div class="modify" ng-click="push()" ng-model="myPush" ng-show="myPush">√</div>
+	<div class="modify" ng-click="cut()" ng-model="cutcut" ng-show="!cutcut">-</div>
+	<div class="modify" ng-click="cancel()" ng-model="myCancel" ng-show="myCancel">X</div>
 	</div>
 	</div>
 </div>

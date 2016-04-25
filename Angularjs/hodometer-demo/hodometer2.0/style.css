@@ -19,11 +19,14 @@ html,body{height:100%;overflow:hidden;}
  /*iphone6 */
 @media only screen and (min-device-width : 375px) and (max-device-width : 667px) {
      .billboard { width:375px;} 
+     .slideDown{bottom:-78%!important;} 
+     .slideTop{bottom:-44%!important;}
      } 
 
  /*iphone6 + */
 @media only screen and (min-device-width : 414px) and (max-device-width : 736px) {
-     .billboard { width:414px;} 
+     .billboard { width:414px;}
+     .slideDown{bottom:-78%!important;} 
      }
 
 /*主要样式*/
@@ -72,7 +75,12 @@ button{
     border-radius:2px;
   
 }
-.mask li em{position:absolute;margin-left:11px;}
+.mask li em{
+    position: absolute;
+    margin-left: 5px;
+    display: inline-block;
+    width: 20px;
+    }
 .mask .modify{
     font-weight:600;
     font-size:18px;
@@ -85,4 +93,19 @@ button{
     font-size:18px;
     text-align:left;
     margin-bottom:10px;
+}
+.slider{
+    position: absolute;
+}
+.slideDown{
+    bottom:-84%;
+    -webkit-transition: bottom .5s ease ;
+    -moz-transition: bottom .5s ease ;
+    transition: bottom .5s ease ;
+}
+.slideTop{
+    bottom:-47%;
+    -webkit-transition: bottom .5s ease ;
+    -moz-transition: bottom .5s ease ;
+    transition: bottom .5s ease ;
 }
