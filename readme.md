@@ -1,6 +1,5 @@
-AngularJs基础概念的理解
-===
-# MVC的理解
+#AngularJs基础概念的理解
+## MVC的理解
 
 * MVC是一种软件架构设计模式(Model-View-Controller,模型-视图-控制器)。
     * 模型（model）中包含应用的数据和数据进行交互的方法。
@@ -16,7 +15,7 @@ AngularJs基础概念的理解
 * Q1：HTML+CSS+JavaScript是不是MVC？如果是的话Model-View-Controller分别是什么？ 
 * Q2：如果把Js和css作为HTML的外部引用，这样是不是MVC?   
 
-# AngularJs的双向数据绑定
+## AngularJs的双向数据绑定
 
     当视图(view)中的数据发生变化的时候，作用域下的数据模型(model)也会相应的更新。同样的，无论何时，当数据模型(model)发生变化的时候，视图(view)也会相应的更新。
     
@@ -29,7 +28,7 @@ AngularJs基础概念的理解
 - 如果视图改变了某个值，数据模型会通过脏检查（Dirty Check）检查到这个变化，而数据模型改变了某个值，视图也会依据变化重新渲染。
 
 
-# NG指令
+## NG指令
 
 **ng-app**
 
@@ -42,7 +41,7 @@ AngularJs基础概念的理解
 
 ## NG自定义指令    
 
-**指令作用域（层级作用域**
+**指令作用域（层级作用域）**
 
     Dom中每个指令调用时都可能会:
 
