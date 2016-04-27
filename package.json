@@ -2,9 +2,9 @@
   "name": "works",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "app2.js",
   "scripts": {
-     "start": "browser-sync start --server --files \"**\\*.html\""
+     "start": "browser-sync start --server --files=\"**/*.html\""
   },
   "author": "daniel",
   "license": "ISC"
