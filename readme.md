@@ -73,10 +73,12 @@
 
     支持动画特性  
     
+    
 - `config(callback)`
 
 
     注册一个在载入时可被用于配置模块的函数
+    
     
 - `constant(key,value)`
 
@@ -89,10 +91,12 @@
 
     创建控制器
     
+    
 - `directive(name,factory)`
 
 
     创建指令
+    
     
 - `factory(name,provider)`
 - `provider(name,type)`
@@ -101,20 +105,24 @@
 
     创建服务
     
+    
 - `filter(name,factory)`
 
 
     创建过滤器用于格式化向用户显示的数据
+    
     
 - `name`
 
 
     返回模块名称
     
+    
 - `run(callback)`
 
     
     注册一个在载入并配置所有模块后被调用的函数
+    
     
 - `value(name,value)`
 
