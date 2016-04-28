@@ -5,8 +5,7 @@
     * 模型（model）中包含应用的数据和数据进行交互的方法。
     * 视图（view）将数据呈现给用户，而不需要知道如何保存对象，只需要知道如何显示它即可。
     * 控制器（Controller）则是二者的桥梁，用来存放二者绑定在一起的业务逻辑。
-    
-    
+       
 **单向的数据绑定**
 
     在Rails等传统Web框架中，控制器（Controller）将多个模型中的数据和模板组合在一起形成视图（view），并将其提供给用户，
@@ -21,8 +20,6 @@
     当视图(view)中的数据发生变化的时候，作用域下的数据模型(model)也会相应的更新。
     同样的，无论何时，当数据模型(model)发生变化的时候，视图(view)也会相应的更新。
     
-
-
 **原理分析**
 
 - $scope作为数据模型对象（model object），是视图（view）和（model）的粘合剂。
@@ -39,7 +36,6 @@
 **ng-init**
     
     ng-init指令用来在作用域上初始化变量，这个指令初始化的变量或者对象将加在$rootScope的一个属性上。
-
 
 ## NG自定义指令    
 
@@ -68,63 +64,44 @@
 
 ### Module 对象成员
 
-- `animation(name,factory)`
+`animation(name,factory)`
 
-
-    支持动画特性  
+    支持动画特性    
     
-    
-- `config(callback)`
-
+ `config(callback)`
 
     注册一个在载入时可被用于配置模块的函数
     
-    
-- `constant(key,value)`
-
+`constant(key,value)`
 
     定义返回常量的服务
-    
-    
-- `controller(name,constructor)`
-
+       
+`controller(name,constructor)`
 
     创建控制器
-    
-    
-- `directive(name,factory)`
-
+      
+`directive(name,factory)`
 
     创建指令
-    
-    
-- `factory(name,provider)`
-- `provider(name,type)`
-- `service(name,constructor)`
+       
+`factory(name,provider)`
+`provider(name,type)`
+`service(name,constructor)`
 
-
-    创建服务
+    创建服务  
     
-    
-- `filter(name,factory)`
-
+`filter(name,factory)`
 
     创建过滤器用于格式化向用户显示的数据
     
-    
-- `name`
-
+`name`
 
     返回模块名称
-    
-    
-- `run(callback)`
-
+      
+`run(callback)`
     
     注册一个在载入并配置所有模块后被调用的函数
-    
-    
-- `value(name,value)`
-
+      
+`value(name,value)`
 
     定义返回常量的服务
