@@ -49,9 +49,74 @@
 
         1. 直接调用相同作用域对象
         2. 从当前作用域对象集成一个新的作用域对象
-        3. 创建一个同当前作用域相隔离的作用域对象
 
 **图解指令作用域**
 
 ![图解](http://www.hubwiz.com/course/54f3ba65e564e50cfccbad4b/img/0006.png)
 
+------
+## 模块化建立应用
+
+>分离应用程序的组件到单个文件中，并使用`script`元素在主HTML文件中引用那些文件
+
+**常见方法**
+
+- 将给定类型的组件放一起（控制器在一个文件里，指令在另一个里）
+- 相关组件的特定部分（用户管理组件放在一个文件里，内容管理组件放在另一个里）
+- 将应用程序中的 HTML标签打散成多个文件中，然后在应用程序运行时当你需要的时候加在片段
+- 对于**特别大的应用**，通常为组织（函数或组件）这一级别创建层级文件夹，而其他级别择优多个文件。
+
+### Module 对象成员
+
+- `animation(name,factory)`
+
+
+    支持动画特性  
+    
+- `config(callback)`
+
+
+    注册一个在载入时可被用于配置模块的函数
+    
+- `constant(key,value)`
+
+
+    定义返回常量的服务
+    
+    
+- `controller(name,constructor)`
+
+
+    创建控制器
+    
+- `directive(name,factory)`
+
+
+    创建指令
+    
+- `factory(name,provider)`
+- `provider(name,type)`
+- `service(name,constructor)`
+
+
+    创建服务
+    
+- `filter(name,factory)`
+
+
+    创建过滤器用于格式化向用户显示的数据
+    
+- `name`
+
+
+    返回模块名称
+    
+- `run(callback)`
+
+    
+    注册一个在载入并配置所有模块后被调用的函数
+    
+- `value(name,value)`
+
+
+    定义返回常量的服务
