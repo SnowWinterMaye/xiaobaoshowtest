@@ -4,42 +4,36 @@
     //站点数据
     app.controller('myCtrl',function($scope){
         $scope.data =[{
-            id: 1,
             place: '北京',
             status: 0,  //status(0:未到站 1：当前位置 ) 
             first:false, //是否始发站（false：非始发站 true：始发站）
             show:true //是否显示（true：显示 false：隐藏）
         },
         {
-            id: 2,
             place: '天津',
             status: 0,
             first:false,
             show:true,
         },
         {
-            id: 3,
             place: '上海',
             status: 0,
             first:false,
             show:true
         },
         {
-            id: 4,
             place: '广州',
             status: 0,
             first:false,
             show:true
         },
         {
-            id: 5,
             place: '杭州',
             status: 0,
             first:false,
             show:true
         },
         {
-            id: 6,
             place:'深圳',
             status: 0,
             first:false,
